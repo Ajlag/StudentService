@@ -1,0 +1,32 @@
+<div class="col-sm-12 col-md-12 col-12 " style="margin-top: 2%">
+  <div class="container">
+    <table class="table flex-column text-center shadow-sm" style="width: 100%; background-color: pink">
+      <thead class="thead-light">
+      <tr>
+        <th >Ime</th>
+        <th >Prezime</th>
+        <th >Indeks</th>
+        <th >Adresa</th>
+        <th >Pol</th>
+        <th>Izmena</th>
+        <th>Brisanje</th>
+      </tr>
+
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let st of studenti">
+        <td class=" text-center">{{st.ime}}</td>
+        <td class=" text-center">{{st.prezime}}</td>
+        <td class=" text-center">{{st.indeks}}</td>
+        <td class=" text-center">{{st.adresa}}</td>
+        <td class=" text-center">{{st.pol}}</td>
+        <td><button class="btn btn-success">Izmeni</button>
+        <td><button class="btn btn-danger">Izbrisi</button> </td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
