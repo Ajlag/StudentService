@@ -3,11 +3,11 @@
     <table class="table flex-column text-center shadow-sm" style="width: 100%; background-color: pink">
       <thead class="thead-light">
       <tr>
-        <th >Ime</th>
-        <th >Prezime</th>
-        <th >Indeks</th>
-        <th >Adresa</th>
-        <th >Pol</th>
+        <th>Ime</th>
+        <th>Prezime</th>
+        <th>Indeks</th>
+        <th>Adresa</th>
+        <th>Pol</th>
         <th>Izmena</th>
         <th>Brisanje</th>
       </tr>
@@ -21,12 +21,58 @@
         <td class=" text-center">{{st.indeks}}</td>
         <td class=" text-center">{{st.adresa}}</td>
         <td class=" text-center">{{st.pol}}</td>
-        <td><button class="btn btn-success">Izmeni</button>
-        <td><button class="btn btn-danger">Izbrisi</button> </td>
+        <td>
+          <button class="btn btn-success" (click)="selectOne(st)">Izmeni</button>
+        <td>
+          <button class="btn btn-danger" (click)="deleteOne(st.indeks)">Izbrisi</button>
+        </td>
       </tr>
 
       </tbody>
     </table>
   </div>
+</div>
+
+<div class="container col-4 text-center" style="background: rgba(255,255,255,0.6) ">
+  <h3 style="font-weight: bold">Izmeni studenta</h3>
+
+  <form [formGroup]="editForm" novalidate (ngSubmit)="onUpdate()">
+    <div class="form-group">
+      <label>Ime:</label>
+      <input class="form-control" formControlName="ime" type="text">
+    </div>
+
+    <div class="form-group">
+      <label>Prezime:</label>
+      <input class="form-control" formControlName="prezime" type="text">
+    </div>
+
+    <div class="form-group">
+      <label>Indeks:</label>
+      <input class="form-control" formControlName="indeks" type="text" readonly>
+    </div>
+
+    <div class="form-group">
+      <label>Adresa:</label>
+      <input class="form-control" formControlName="adresa" type="text">
+    </div>
+
+    <div class="form-group">
+      <label>Pol:</label>
+      <select class="form-control" formControlName="pol">
+        <option>M</option>
+        <option>Z</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>Lozinka:</label>
+      <input class="form-control" formControlName="lozinka" type="text">
+    </div>
+
+    <button type="submit" class="btn btn-success">
+      Izmeni
+    </button>
+  </form>
 </div>
 
