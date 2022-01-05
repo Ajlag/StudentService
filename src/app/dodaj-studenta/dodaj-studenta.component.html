@@ -7,17 +7,37 @@
       <form [formGroup]="createForm" novalidate>
         <div class="form-group">
           <label>Ime:</label>
-          <input class="form-control" formControlName="ime" type="text">
+          <input class="form-control" formControlName="ime" type="text" required minlength="6" maxlength="11">
+
+          <div *ngIf="createForm.controls['ime'].invalid && (createForm.controls['ime'].dirty
+|| createForm.controls['ime'].touched)" class="alert alert-danger">
+            <div *ngIf="createForm.controls['ime'].errors.required">Ime je neophodno</div>
+            <div *ngIf="createForm.controls['ime'].errors['minlength']"> Ime mora sadrzati vise od 6 karaktera</div>
+            <div *ngIf="createForm.controls['ime'].errors['maxlength']">Ime mora sadrzati manje od 11 karaktera</div>
+          </div>
+
         </div>
 
         <div class="form-group">
           <label>Prezime:</label>
-          <input class="form-control" formControlName="prezime" type="text">
+          <input class="form-control" formControlName="prezime" type="text" required minlength="7" maxlength="15">
+
+          <div *ngIf="createForm.controls['prezime'].invalid && (createForm.controls['prezime'].dirty
+|| createForm.controls['ime'].touched)" class="alert alert-danger">
+            <div *ngIf="createForm.controls['prezime'].errors.required">Prezime je neophodno</div>
+            <div *ngIf="createForm.controls['prezime'].errors['minlenght']">Prezime mora sadrzati vise od 7 karaktera </div>
+            <div *ngIf="createForm.controls['prezime'].errors['maxlenght']">Prezime mora sadrzati manje od 15 karaktera</div>
+          </div>
         </div>
 
         <div class="form-group">
           <label>Indeks:</label>
-          <input class="form-control" formControlName="indeks" type="text">
+          <input class="form-control" formControlName="indeks" type="text" required>
+
+          <div *ngIf="createForm.controls['indeks'].invalid && (createForm.controls['prezime'].dirty
+|| createForm.controls['indeks'].touched)" class="alert alert-danger">
+            <div *ngIf="createForm.controls['indeks'].errors.required">Indeks je obavezan</div>
+          </div>
         </div>
 
         <div class="form-group">
