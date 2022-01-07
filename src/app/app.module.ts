@@ -14,7 +14,7 @@ import {PrikazOcenaComponent} from './prikaz-ocena/prikaz-ocena.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-
+import { HighlightDirective } from './highlight.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +25,8 @@ import {HttpClientModule} from '@angular/common/http';
     NavbarComponent,
     PocetnaComponent,
     PrikazStudenataComponent,
-    PrikazOcenaComponent
+    PrikazOcenaComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,

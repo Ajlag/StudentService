@@ -1,1 +1,76 @@
-<p>login works!</p>
+<div class="row" style="margin-top: 3.7%;">
+  <div class="col-sm-4 col-12">
+    <div class="container">
+      <h3>Registracija</h3>
+      <form [formGroup]="signupForm" novalidate (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+          <label>Ime:</label>
+          <input class="form-control" formControlName="ime" type="text">
+        </div>
+
+        <div class="form-group">
+          <label>Prezime:</label>
+          <input class="form-control" formControlName="prezime" type="text">
+        </div>
+
+        <div class="form-group">
+          <label>Indeks:</label>
+          <input class="form-control" formControlName="indeks" type="text">
+        </div>
+
+        <div class="form-group">
+          <label>Adresa:</label>
+          <input class="form-control" formControlName="adresa" type="text">
+        </div>
+
+        <div class="form-group">
+          <label>Pol:</label>
+          <select class="form-control" type="text" formControlName="pol">
+            <option>M </option>
+            <option>Z</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Lozinka:</label>
+          <input class="form-control" formControlName="lozinka" type="text" >
+        </div>
+
+        <button type="submit" class="btn btn-success">
+
+            Registruj se
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-sm-4 col-12">
+    <div style="margin:auto; width: 0;height: 100%; border: 0.5px solid black">
+    </div>
+
+  </div>
+<div class="col">
+  <div class="container">
+  <h3>Prijava</h3>
+
+    <form [formGroup]="loginForm" novalidate (ngSubmit)="onLogin()">
+      <div class="form-group">
+        <label>Indeks:</label>
+        <input class="form-control" formControlName="indeksL" type="text">
+      </div>
+
+      <div class="form-group">
+        <label>Lozinka:</label>
+        <input class="form-control" formControlName="lozinkaL" type="password">
+      </div>
+
+      <button type="submit" class="btn btn-primary">
+        Prijavi se
+      </button>
+    </form>
+  </div>
+</div>
+</div>
+
+

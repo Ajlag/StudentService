@@ -9,3 +9,7 @@ export const prikaziOceneURL = `${baseURL}ocena/ocena.php`;
 export const updateOceneURL = `${baseURL}ocena/update_ocena.php`;
 export const izbrisiOceneURL = `${baseURL}ocena/delete_ocena.php`;
 
+export const signupURL = `${baseURL}korisnik/signup.php`;
+export const loginURL = `${baseURL}korisnik/login.php`;
+export const mojProfilURL = `${baseURL}korisnik/my_profile.php`;
+export const updateMeURL = `${baseURL}korisnik/update_me.php`;
