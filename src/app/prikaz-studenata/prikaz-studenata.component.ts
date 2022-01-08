@@ -4,16 +4,19 @@ import {StudentService} from '../service/student.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {error} from '@angular/compiler/src/util';
+import {StudentFilterPipe} from '../student-filter.pipe';
 
 @Component({
   selector: 'app-prikaz-studenata',
   templateUrl: './prikaz-studenata.component.html',
   styleUrls: ['./prikaz-studenata.component.css']
+
 })
 export class PrikazStudenataComponent implements OnInit {
 
   editForm: FormGroup;
   editLoad = false;
+  searchTerm: string;
 
   constructor(private studentService: StudentService, protected router: Router, private fb: FormBuilder) {
   }

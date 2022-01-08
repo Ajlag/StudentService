@@ -10,12 +10,12 @@ import {LoginComponent} from './login/login.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {PocetnaComponent} from './pocetna/pocetna.component';
 import {PrikazStudenataComponent} from './prikaz-studenata/prikaz-studenata.component';
-import {PrikazOcenaComponent} from './prikaz-ocena/prikaz-ocena.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { HighlightDirective } from './highlight.directive';
 import { MojProfilComponent } from './moj-profil/moj-profil.component';
+import {StudentFilterPipe} from './student-filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,16 +26,17 @@ import { MojProfilComponent } from './moj-profil/moj-profil.component';
     NavbarComponent,
     PocetnaComponent,
     PrikazStudenataComponent,
-    PrikazOcenaComponent,
     HighlightDirective,
-    MojProfilComponent
+    MojProfilComponent,
+    StudentFilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

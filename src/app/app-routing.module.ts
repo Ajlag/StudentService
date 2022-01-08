@@ -5,7 +5,6 @@ import {DodajStudentaComponent} from './dodaj-studenta/dodaj-studenta.component'
 import {DodajOceneComponent} from './dodaj-ocene/dodaj-ocene.component';
 import {LoginComponent} from './login/login.component';
 import {PrikazStudenataComponent} from './prikaz-studenata/prikaz-studenata.component';
-import {PrikazOcenaComponent} from './prikaz-ocena/prikaz-ocena.component';
 import {MojProfilComponent} from './moj-profil/moj-profil.component';
 
 
@@ -16,8 +15,7 @@ const routes: Routes = [
   {path: 'dodajOcenu', component: DodajOceneComponent},
   {path: 'login', component: LoginComponent},
   {path: 'prikazStudenta', component: PrikazStudenataComponent},
-  {path: 'prikazOcene', component: PrikazOcenaComponent},
-  {path: 'mojProfil', component: MojProfilComponent}
+   {path: 'mojProfil', component: MojProfilComponent}
 
 ];
 

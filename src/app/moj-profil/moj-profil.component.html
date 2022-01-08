@@ -53,7 +53,7 @@
         <tbody>
         <tr *ngFor="let oc of ocen" class="text-center">
           <td>{{oc.nazivPredmeta}}</td>
-          <td>{{oc.datum}}</td>
+          <td>{{oc.datum | date:"dd-MM-yyyy"}}</td>
           <td>{{oc.ocena}}</td>
           <td>{{oc.opisOcene}}</td>
         </tr>
