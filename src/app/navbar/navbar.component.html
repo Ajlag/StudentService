@@ -5,12 +5,13 @@ px-md-4 mb-3 bg-white border-bottom shadow-sm">
   <nav class="text">
     <a class="p-2 text-dark lead" routerLink="/pocetna">Pocetna</a>
     <a class="p-2 text-dark lead" routerLink="/prikazStudenta">Prikaz Studenata</a>
-    <a class="p-2 text-dark lead" routerLink="/prikazOcene">Prikaz Ocena</a>
-    <a class="p-2 text-dark lead" routerLink="/dodajStudenta">Novi student </a>
-    <a class="p-2 text-dark lead" routerLink="/dodajOcenu">Nova Ocena</a>
+    <a *ngIf="getAuth()" class="p-2 text-dark lead" routerLink="/mojProfil">Moj Profil</a>
+    <a *ngIf="getAuth()" class="p-2 text-dark lead" routerLink="/dodajOcenu">Nova Ocena</a>
+
   </nav>
 
+  <button *ngIf="getAuth()" class="btn btn-primary" (click)="logout()">Odjavi se</button>
   <div class="cart-container">
-    <a class=" btn btn-outline-secondary" routerLink="/login">Prijavi se</a>
+    <a *ngIf="!getAuth()" class=" btn btn-outline-secondary" routerLink="/login">Prijavi se</a>
   </div>
 </div>

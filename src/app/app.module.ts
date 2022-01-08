@@ -15,6 +15,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { HighlightDirective } from './highlight.directive';
+import { MojProfilComponent } from './moj-profil/moj-profil.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { HighlightDirective } from './highlight.directive';
     PocetnaComponent,
     PrikazStudenataComponent,
     PrikazOcenaComponent,
-    HighlightDirective
+    HighlightDirective,
+    MojProfilComponent
   ],
   imports: [
     BrowserModule,

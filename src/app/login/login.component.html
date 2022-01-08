@@ -2,75 +2,84 @@
   <div class="col-sm-4 col-12">
     <div class="container">
       <h3>Registracija</h3>
-      <form [formGroup]="signupForm" novalidate (ngSubmit)="onSubmit()">
 
+      <form [formGroup]="signupForm" novalidate class="sign-form" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label>Ime:</label>
-          <input class="form-control" formControlName="ime" type="text">
+          <input class="form-control" type="text" formControlName="ime" required minlength="6" maxlength="15">
+        </div>
+
+        <div *ngIf="signupForm.controls['ime'].invalid && (signupForm.controls['ime'].dirty ||
+signupForm.controls['ime'].touched)" class="alert alert-danger">
+          <div *ngIf="signupForm.controls['ime'].errors.required">Ime je neophodno</div>
+          <div *ngIf="signupForm.controls['ime'].errors['minlength'] || signupForm.controls['ime'].errors['maxlength']">Ime mora sadrzati vise od 6  a manje od 15karaktera</div>
         </div>
 
         <div class="form-group">
           <label>Prezime:</label>
-          <input class="form-control" formControlName="prezime" type="text">
+          <input class="form-control" formControlName="prezime" type="text" minlength="7" maxlength="20" required>
+        </div>
+        <div *ngIf="signupForm.controls['prezime'].invalid && (signupForm.controls['prezime'].dirty || signupForm.controls['prezime'].touched)" class=" alert alert-danger">
+          <div *ngIf="signupForm.controls['prezime'].errors.required">Prezime je neophodno</div>
+          <div *ngIf="signupForm.controls['prezime'].errors['minlength'] || signupForm.controls['prezime'].errors['maxlength']">Prezime mora sadrzati najmanje 7 karaktera a  najvise 20</div>
         </div>
 
         <div class="form-group">
           <label>Indeks:</label>
-          <input class="form-control" formControlName="indeks" type="text">
+          <input class="form-control" type="text" formControlName="indeks">
         </div>
 
         <div class="form-group">
           <label>Adresa:</label>
           <input class="form-control" formControlName="adresa" type="text">
         </div>
-
         <div class="form-group">
           <label>Pol:</label>
           <select class="form-control" type="text" formControlName="pol">
-            <option>M </option>
+            <option>M</option>
             <option>Z</option>
           </select>
         </div>
 
         <div class="form-group">
           <label>Lozinka:</label>
-          <input class="form-control" formControlName="lozinka" type="text" >
+          <input formControlName="lozinka" class="form-control" type="text">
         </div>
-
         <button type="submit" class="btn btn-success">
-
-            Registruj se
+          Registruj se
         </button>
       </form>
     </div>
   </div>
 
   <div class="col-sm-4 col-12">
-    <div style="margin:auto; width: 0;height: 100%; border: 0.5px solid black">
+    <div style="margin:auto; width: 0; height: 100%; border: 0.5px solid black">
     </div>
-
   </div>
-<div class="col">
-  <div class="container">
-  <h3>Prijava</h3>
 
-    <form [formGroup]="loginForm" novalidate (ngSubmit)="onLogin()">
-      <div class="form-group">
-        <label>Indeks:</label>
-        <input class="form-control" formControlName="indeksL" type="text">
-      </div>
+  <div class="col">
+    <div class="container">
+      <h3>Prijava</h3>
+      <form [formGroup]="loginForm" novalidate (ngSubmit)="onLogin()">
+        <div class="form-group">
+          <label>Indeks:</label>
+          <input class="form-control" formControlName="indeksL" type="text" required>
+        </div>
+        <div *ngIf="loginForm.controls['indeksL'].invalid && (loginForm.controls['indeksL'].dirty || loginForm.controls['indeksL'].touched)" class="alert alert-danger">
+          <div *ngIf="loginForm.controls['indeksL'].errors.required">Indeks je neophodan!</div>
+        </div>
+        <div class="form-group">
+          <label>Lozinka:</label>
+          <input class="form-control" formControlName="lozinkaL" type="password">
+        </div>
+        <div *ngIf="loginForm.controls['lozinkaL'].invalid && (loginForm.controls['lozinkaL'].dirty || loginForm.controls['lozinkaL'].touched)" class="alert alert-danger">
+          <div *ngIf="loginForm.controls['lozinkaL'].errors.required">Lozinka je neophodna!</div>
+        </div>
 
-      <div class="form-group">
-        <label>Lozinka:</label>
-        <input class="form-control" formControlName="lozinkaL" type="password">
-      </div>
-
-      <button type="submit" class="btn btn-primary">
-        Prijavi se
-      </button>
-    </form>
+        <button type="submit" class="btn btn-success">
+          Prijavi se
+        </button>
+      </form>
+    </div>
   </div>
 </div>
-</div>
-
-

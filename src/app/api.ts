@@ -11,5 +11,6 @@ export const izbrisiOceneURL = `${baseURL}ocena/delete_ocena.php`;
 
 export const signupURL = `${baseURL}korisnik/signup.php`;
 export const loginURL = `${baseURL}korisnik/login.php`;
-export const mojProfilURL = `${baseURL}korisnik/my_profile.php`;
+export const mojProfilURL = `${baseURL}korisnik/moj_profil.php`;
 export const updateMeURL = `${baseURL}korisnik/update_me.php`;
+export const mojeOceneURL = `${baseURL}korisnik/mojeOcene.php`;

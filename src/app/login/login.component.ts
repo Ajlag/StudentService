@@ -3,7 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Student} from '../models/Student';
 import {Korisnik} from '../models/Korisnik';
 import {Router} from '@angular/router';
-import {UserService} from '../service/user.service';
+import {StudentService} from '../service/student.service';
+
 
 @Component({
   selector: 'app-login',
@@ -12,26 +13,21 @@ import {UserService} from '../service/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private us: UserService, protected router: Router) {
-  }
-
   signupForm: FormGroup;
   loginForm: FormGroup;
 
-  submitted = false;
-  pokusajPrijave = false;
-  loading = false;
-  loginTry = false;
-  loginLoad = false;
-  newUser: Student = null;
-  stariKorisnik: Korisnik = null;
+  newStudent: Student = null;
+  statiKorisnik: Korisnik = null;
 
-  ngOnInit(): void {
-    this.createSignupForm();
-    this.createLoginForm();
+  constructor(private fb: FormBuilder, private studentService: StudentService, protected router: Router) {
   }
 
-  createSignupForm() {
+  ngOnInit() {
+    this.createLoginForm();
+    this.createSignUpForm();
+  }
+
+  createSignUpForm() {
     this.signupForm = this.fb.group({
       ime: ['', Validators.required],
       prezime: ['', Validators.required],
@@ -42,10 +38,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  get scs() {
-    return this.signupForm.controls;
-  }
-
   createLoginForm() {
     this.loginForm = this.fb.group({
       indeksL: ['', Validators.required],
@@ -53,35 +45,45 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  getAuth() {
+    return this.studentService.checkAuth();
+  }
 
-    this.newUser = new Student(this.scs.ime.value, this.scs.prezime.value, this.scs.indeks.value, this.scs.adresa.value, this.scs.pol.value, this.scs.lozinka.value);
-
-    this.us.register(this.newUser).subscribe(
-      (user: Korisnik) => {
-        console.log(JSON.stringify(user));
-        const auth = {
-          indeks: user.indeks
-        };
-
-        sessionStorage.setItem('user', auth.indeks);
-        this.router.navigate(['/']);
-      },
-      err => console.log(JSON.stringify(err)));
+  get signs() {
+    return this.signupForm.controls;
   }
 
   get logInfo() {
     return this.loginForm.controls;
   }
 
-  onLogin() {
-    this.stariKorisnik = new Korisnik(this.logInfo.indeksL.value, this.logInfo.lozinkaL.value);
-    this.us.login(this.stariKorisnik).subscribe((data: any) => {
-        console.log(JSON.stringify(data));
-        sessionStorage.setItem('user', data.indeks);
+  onSubmit() {
+    this.newStudent = new Student(this.signs.ime.value, this.signs.prezime.value, this.signs.indeks.value, this.signs.adresa.value, this.signs.pol.value, this.signs.lozinka.value);
 
-        this.router.navigate(['/pocetna']);
-      },
-      err => console.log(JSON.stringify(err)));
+    this.studentService.createStudent(this.newStudent).subscribe(
+      (student: Student) => {
+        console.log(JSON.stringify(student));
+        let auth = {
+          indeks: student.indeks
+        };
+
+        sessionStorage.setItem('student', auth.indeks);
+        this.router.navigate(['/']);
+      }, err => console.log(JSON.stringify(err)));
+
+  }
+
+  refresh(): void {
+    window.location.reload();
+  }
+
+  onLogin() {
+    this.statiKorisnik = new Korisnik(this.logInfo.indeksL.value, this.logInfo.lozinkaL.value);
+    this.studentService.login(this.statiKorisnik).subscribe((data: any) => {
+      console.log(JSON.stringify(data));
+      sessionStorage.setItem('student', data.indeks);
+      this.router.navigate(['/pocetna']);
+    },
+      error => console.log(JSON.stringify(error)));
   }
 }
