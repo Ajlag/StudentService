@@ -1,57 +1,62 @@
-<div class="row">
+<div class="row" xmlns="http://www.w3.org/1999/html">
+  <div class="col-4"></div>
   <div class="col-sm-12 col-md-4 col-12">
-    <h3>Moj profil</h3>
-    <form>
+    <h3 style="margin-left: 30%">Moj profil</h3>
+    <form [formGroup]="myForm" novalidate (ngSubmit)="onUpdate()">
       <div class="form-group">
         <label>Ime:</label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" formControlName="ime" readonly>
       </div>
 
       <div class="form-group">
         <label>Prezime:</label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" formControlName="prezime" readonly>
       </div>
 
       <div class="form-group">
         <label>Indeks:</label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" formControlName="indeks" readonly>
       </div>
 
       <div class="form-group">
         <label>Adresa:</label>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" formControlName="adresa">
       </div>
 
       <div class="form-group">
         <label>Pol:</label>
-        <select class="form-control">
+        <select class="form-control" formControlName="pol">
           <option>M</option>
           <option>Z</option>
         </select>
       </div>
 
-      <button type="submit" class="btn btn-info">
+      <button type="submit" class="btn btn-info" style="margin-left: 30%" >
         Sacuvaj izmene
       </button>
     </form>
+<hr>
   </div>
 
-  <div class="col-sm-12 col-md-12 col-12">
+  <div class="col-sm-12 col-md-12 col-12" style="margin-top: 2%;">
     <div class="container">
       <table class="table" style="width: 100%; background-color: pink;">
-        <thead class="thead-light">
-        <tr>
-          <th scope="col" style="text-align: center;">Naziv predmeta
-          </th>
-          <th scope="col" style="text-align: center;">Datum</th>
-          <th scope="col" style="text-align: center;">Ocena</th>
-          <th scope="col" style="text-align: center;">Opis</th>
-        </tr>
-        </thead>
+      <thead class="thead-light">
+      <tr>
+        <th scope="col" style="text-align: center;">Naziv predmeta</th>
+        <th scope="col" style="text-align: center;">Datum</th>
+        <th scope="col" style="text-align: center;">Ocena</th>
+        <th scope="col" style="text-align: center;">Opis ocene</th>
+      </tr>
+      </thead>
 
         <tbody>
-
-
+        <tr *ngFor="let oc of ocen" class="text-center">
+          <td>{{oc.nazivPredmeta}}</td>
+          <td>{{oc.datum}}</td>
+          <td>{{oc.ocena}}</td>
+          <td>{{oc.opisOcene}}</td>
+        </tr>
         </tbody>
       </table>
     </div>

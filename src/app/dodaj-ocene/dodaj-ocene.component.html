@@ -1,1 +1,38 @@
-<p>dodaj-ocene works!</p>
+<div class="row">
+  <div class="col-sm-12 col-md-4 col-12" style="margin-left: 30%">
+    <div class="container">
+      <h3 style="margin-left: 10%">Dodaj novu ocenu</h3>
+
+      <form [formGroup]="oceneForma" novalidate (ngSubmit)="onCreate()">
+        <div class="form-group">
+          <label>Naziv predmeta:</label>
+          <input type="text" class="form-control" formControlName="nazivPredmeta">
+        </div>
+
+        <div class="form-group">
+          <label>Datum:</label>
+          <input type="text" class="form-control" formControlName="datum">
+        </div>
+
+        <div class="form-group">
+          <label>Ocena:</label>
+          <input type="number" class="form-control" formControlName="ocena" >
+        </div>
+
+        <div class="form-group">
+          <label>Opis:</label>
+          <input type="text" class="form-control" formControlName="opis">
+        </div>
+
+        <div class="form-group">
+          <label>Indeks studenta:</label>
+          <input type="text" class="form-control" formControlName="indeks" readonly>
+        </div>
+
+        <button type="submit" class="btn btn-success" style="margin-left: 30%">
+          Dodaj ocenu
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
