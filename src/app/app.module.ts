@@ -16,6 +16,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { HighlightDirective } from './highlight.directive';
 import { MojProfilComponent } from './moj-profil/moj-profil.component';
 import {StudentFilterPipe} from './student-filter.pipe';
+import { ProbaDirective } from './direktive/proba.directive';
+import { FiltiriranjeOcenePipe } from './filtiriranje-ocene.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +30,9 @@ import {StudentFilterPipe} from './student-filter.pipe';
     PrikazStudenataComponent,
     HighlightDirective,
     MojProfilComponent,
-    StudentFilterPipe
+    StudentFilterPipe,
+    ProbaDirective,
+    FiltiriranjeOcenePipe
   ],
   imports: [
     BrowserModule,

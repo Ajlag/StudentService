@@ -4,6 +4,7 @@ import {Student} from '../models/Student';
 import {Korisnik} from '../models/Korisnik';
 import {Router} from '@angular/router';
 import {StudentService} from '../service/student.service';
+import {formatNumber} from '@angular/common';
 
 
 @Component({
@@ -19,7 +20,9 @@ export class LoginComponent implements OnInit {
   newStudent: Student = null;
   statiKorisnik: Korisnik = null;
 
+
   constructor(private fb: FormBuilder, private studentService: StudentService, protected router: Router) {
+
   }
 
   ngOnInit() {
@@ -31,7 +34,7 @@ export class LoginComponent implements OnInit {
     this.signupForm = this.fb.group({
       ime: ['', Validators.required],
       prezime: ['', Validators.required],
-      indeks: ['', Validators.required],
+      indeks: ['', Validators.required, Validators.pattern('([0-9]{3}-[0-9]{3}/[0-9]{4})')],
       adresa: ['', Validators.required],
       pol: ['', Validators.required],
       lozinka: ['', Validators.required]
