@@ -18,6 +18,7 @@ import { MojProfilComponent } from './moj-profil/moj-profil.component';
 import {StudentFilterPipe} from './student-filter.pipe';
 import { ProbaDirective } from './direktive/proba.directive';
 import { FiltiriranjeOcenePipe } from './filtiriranje-ocene.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,7 @@ import { FiltiriranjeOcenePipe } from './filtiriranje-ocene.pipe';
     MojProfilComponent,
     StudentFilterPipe,
     ProbaDirective,
-    FiltiriranjeOcenePipe
+    FiltiriranjeOcenePipe,
   ],
   imports: [
     BrowserModule,
